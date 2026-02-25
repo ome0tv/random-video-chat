@@ -21,24 +21,34 @@ color:#bb86fc;
 color:#03dac6;
 font-size:14px;
 }
-video{
-width:95%;
-height:45vh;
-border-radius:12px;
-background:black;
-margin:10px auto;
-display:block;
-object-fit:cover;
+#videoContainer{
+  display:flex;
+  flex-direction:column; /* العمود افتراضي للموبايل */
+  align-items:center;
+  justify-content:center;
 }
 
-/* للشاشات الكبيرة */
-@media (min-width:768px){
 video{
-width:45%;
-height:300px;
-display:inline-block;
-margin:10px;
+  width:95%;
+  max-width:500px;
+  height:45vh;
+  border-radius:12px;
+  background:black;
+  margin:10px 0;
+  object-fit:cover;
 }
+
+/* للشاشات الكبيرة (Desktop) */
+@media (min-width:768px){
+  #videoContainer{
+    flex-direction:row; /* صف على الكمبيوتر */
+    justify-content:space-around;
+  }
+  video{
+    width:45%;
+    height:300px;
+    margin:10px;
+  }
 }
 button{
 padding:12px 25px;
@@ -79,8 +89,10 @@ Turbo Random Video Chat
 <div id="onlineCount">Online: 0</div>
 </header>
 
-<video id="localVideo" autoplay muted playsinline></video>
-<video id="remoteVideo" autoplay playsinline></video>
+<div id="videoContainer">
+  <video id="localVideo" autoplay muted playsinline></video>
+  <video id="remoteVideo" autoplay playsinline></video>
+</div>
 
 <br>
 <button onclick="start()">Start</button>
