@@ -23,7 +23,6 @@ font-size:14px;
 }
 video{
 width:95%;
-max-width:500px;
 height:45vh;
 border-radius:12px;
 background:black;
@@ -31,13 +30,16 @@ margin:10px auto;
 display:block;
 object-fit:cover;
 }
-  @media (min-width:768px){
+
+/* للشاشات الكبيرة */
+@media (min-width:768px){
 video{
 width:45%;
-height:350px;
+height:300px;
 display:inline-block;
+margin:10px;
 }
-  }
+}
 button{
 padding:12px 25px;
 margin:8px;
